@@ -1,0 +1,337 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E5E5E5;
+    display: flex;
+    width: 100%;
+    font-family: 'Open Sans';
+    padding: 30px 20px;
+}
+
+.custom-check {
+    min-width: 176px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px 30px;
+    display: block;
+    margin-right: 50px;
+}
+
+.title {
+    margin: 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #333333;
+}
+
+.container {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    padding-left: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #333333;
+}
+
+.container:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.check-input {
+    display: none;
+}
+
+.container .checkmark {
+    position: absolute;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    border: 1px solid #999999;
+    border-radius: 3px; ;
+}
+
+.container input:checked ~ .checkmark {
+    background-image: url(../img/check.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 9px;
+    border-color: #CCB26E;
+  }
+
+/* select */
+
+.choices__list .is-selected {
+    display: none;
+}
+
+.choices {
+    border-radius: 10px;
+    min-width: 176px;
+    margin: 0;
+    margin-right: 50px;
+}
+
+.choices__list--dropdown .choices__item--selectable, .choices__list[aria-expanded] .choices__item--selectable {
+    padding-right: 0;
+}
+
+.choices__inner {
+    position: absolute;
+    z-index: 5;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    border-color: #CCB26E;
+}
+
+.is-open .choices__inner {
+    border-radius: 10px;
+    border-color: #CCB26E;
+}
+
+.is-open .choices__list--dropdown, .is-open .choices__list[aria-expanded] {
+    border-color: #CCB26E;
+}
+
+.choices__placeholder {
+    opacity: 1;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted, .choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+    background: none ;
+}
+
+.choices__list--dropdown, .choices__list[aria-expanded] {
+    visibility: hidden;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #CCB26E;
+    top: 30px;
+    padding-top: 20px;
+    margin-top: -1px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    word-break: break-all;
+    will-change: visibility;
+}
+
+.choices[data-type*=select-one]::after {
+    content: "";
+    height: 10px;
+    width: 10px;
+    z-index: 5;
+    position: absolute;
+    background-image: url(../img/triangle-grey.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    right: 11.5px;
+    top: 10%;
+    margin-top: -25.5px;
+    pointer-events: none;
+}
+
+.choices[data-type*=select-one].is-open::after {
+    border-color: none;
+    position: absolute;
+    margin-top: -25.5px;
+    height: 10px;
+    width: 10px;
+    transform: rotate(180deg);
+    background-image: url(../img/triangle.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Map */
+
+.custom-map {
+    margin-right: 50px;
+}
+
+[class*="ground-pane"] {
+    filter: grayscale(1);
+}
+
+/* Custom Scrollbar*/
+
+.custom-scrollbar {
+    width: 399px;
+    height: 310px;
+    padding-top: 20px;
+    padding-left: 29px;
+    padding-right: 30px;
+    background-color: #fff;
+    margin-right: 50px;
+}
+
+.scrollbar-text {
+    font-size: 14px;
+    line-height: 170%;
+    color: #333333;
+}
+
+.simplebar-scrollbar {
+    background-color: #CCB26E;
+    width: 6px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.simplebar-scrollbar:before {
+    position: absolute;
+    content: '';
+    background: inherit;
+    border-radius: 7px;
+    left: 2px;
+    right: 2px;
+    opacity: 0;
+    transition: opacity 0.2s 0.5s linear;
+}
+
+/* Validation */
+
+.form-validate {
+    margin-right: 50px;
+}
+
+.form {
+    
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    min-width: 440px;
+    min-height: 410px;  
+    padding: 38px 30px;
+}
+
+.label {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.js-validate-error-label {
+    color: rgba(255, 92, 0, 1) !important;
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+}
+
+.js-validate-error-field {
+    border: 1px solid rgba(255, 92, 0, 1) !important;
+}
+
+.input{
+    display: block;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 10px;
+    padding: 20px 24px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    color: #999999;
+
+}
+
+
+.input:focus-visible {
+     outline: none;
+}
+
+.form-submit-btn {
+    display: block;
+    cursor: pointer;
+    height: 60px;
+    width: 50%;
+    background: #FF5C00;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #FFFFFF;
+    border:none;
+}
+
+
+/*TOoltip*/
+
+.tooltip {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-width: 375px;
+    height: fit-content;
+    background-color: #fff;
+    padding: 20px 30px;
+    padding-right: 78px;
+}
+
+.tooltip-text {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 170%;
+    color: #333333;
+}
+
+.marker {
+    position: absolute;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    right: 103px;
+    bottom: 25px;
+}
+
+svg path {
+    fill: #BCBCBC;
+}
+
+.marker:hover path {
+    fill: #CCB26E;
+    transition: fill 0.3s ease-in-out;
+}
+
+.popup {
+    position: absolute;
+    height: 35px;
+    width: 163px;
+    background-image: url(../img/popup-bg.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    bottom: 44px;
+    right: 29px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 7px 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.marker:hover + .popup,
+.marker:focus + .popup {
+    opacity: 1;
+}
